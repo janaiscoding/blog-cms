@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import DeletePost from "./DeletePost";
-import Heading from "./UI_components/Heading";
+import Subheading from "./UI_components/Subheading";
 
 interface Props {
   post: {
@@ -19,12 +19,12 @@ const PostAdminPreview: NextPage<Props> = ({
   setRefresher,
 }) => {
   return (
-    <div className="bg-purewhite shadow-md p-4 rounded">
+    <div className="flex flex-col justify-between bg-purewhite shadow-md p-4 rounded">
       <a href={`/posts/${post._id}`}>
-        <Heading title={post.title} />
+        <Subheading title={post.title} />
       </a>
       {post.published ? (
-        <p className="text-grey">Is published</p>
+        <p className="text-grey">Published</p>
       ) : (
         <p className="text-grey">Not published</p>
       )}

@@ -27,7 +27,6 @@ const Form: NextPage<FormProps> = ({
 }) => {
   const editorRef = useRef<any>(null);
   const log = () => {
-    console.log("checking if log is called correctly");
     if (editorRef.current) {
       setText(editorRef.current.getContent());
     }

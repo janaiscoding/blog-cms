@@ -5,15 +5,15 @@ async function loginRequest(
   opts: {},
   validErrSetter: any,
   dbErrSetter: any,
-  tokenSetter: any,
+  dataSetter: any,
   loggedSetter: any
 ) {
   await fetch(url, opts)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      console.log(data, "my data from api req");
       if (data.token !== undefined) {
-        tokenSetter(data.token);
+        dataSetter(data);
         loggedSetter(true);
       }
       if (data.errors) {
@@ -78,17 +78,29 @@ async function createComment(
   url: string,
   opts: {},
   refresher: boolean,
-  setter: any
+  setter: any,
+  errorSetter: any,
+  handleClear: any
 ) {
   await fetch(url, opts)
     .then((response) => response.json())
     .then((data) => {
-      setter(!refresher);
+      if (data.errors) {
+        errorSetter(data.errors);
+        console.log("....Errors");
+        setter(!refresher);
+      } else {
+        handleClear();
+        errorSetter([]);
+        setter(!refresher);
+      }
     })
     .catch((error) => {
       console.log(error.message);
+      //unhandled error
     });
 }
+
 async function updatePost(url: string, opts: {}, setter: any) {
   console.log(url);
   await fetch(url, opts)

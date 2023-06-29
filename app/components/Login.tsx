@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { API_LOGIN } from "../utils/api_keys";
 import { loginRequest, opts_post } from "../utils/api_actions";
-import { setJwtToken } from "../utils/authentication";
+import { setJwtToken, setUserName } from "../utils/authentication";
 import Heading from "./UI_components/Heading";
 
 const Login = ({ setLogged }: any) => {
@@ -11,7 +11,10 @@ const Login = ({ setLogged }: any) => {
   const [password, setPassword] = useState<string>();
   const [validationErrors, setValidErrs] = useState([]);
   const [dbErrors, setDbErrs] = useState(String);
-
+  const handleData = (data:any) =>{
+    setJwtToken(data.token)
+    setUserName(data.user.first_name)
+  }
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     opts_post.body = JSON.stringify({ email, password });
@@ -21,7 +24,7 @@ const Login = ({ setLogged }: any) => {
       opts_post,
       setValidErrs,
       setDbErrs,
-      setJwtToken,
+      handleData,
       setLogged
     );
   };

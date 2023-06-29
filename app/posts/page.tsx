@@ -12,10 +12,13 @@ const Posts = () => {
     fetchPublished(API_ALL_POSTS, opts_get, setPosts);
   }, []);
   return (
-    <main className="h-min-screen flex flex-col items-start justify-center p-24 gap-24">
+    <main className="flex flex-col p-24 min-h-screen">
       <Heading title={"Published blog posts"} />
       {posts.map((post, i) => (
-        <p key={i}>{post.title}</p>
+        <div key={i}>
+        <a className="text-blue text-xl" href={`/posts/${post._id}`}>{post.title}</a>
+        <p className="text-grey text-sm">Written on {new Date(post.createdAt).toLocaleDateString()} - {post.comments.length} Comments </p>
+        </div>
       ))}
     </main>
   );

@@ -3,6 +3,7 @@ type Post = {
   text: string;
   _id: string;
   comments: [];
+  createdAt: string;
 };
 
 type PostWithComments = {
@@ -14,6 +15,7 @@ type PostWithComments = {
       comment: string;
       name: string;
       createdAt: string;
+      _id: string;
     }
   ];
   published: Boolean;

@@ -13,7 +13,7 @@ export default function Page({ params }: { params: { id: string } }) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <div className="h-screen flex flex-col justify-center items-center gap-10">
+    <div className="h-screen flex flex-col gap-10">
       <EditPost
         title={post?.title}
         text={post?.text}

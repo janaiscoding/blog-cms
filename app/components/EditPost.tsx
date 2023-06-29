@@ -29,7 +29,7 @@ const EditPost = ({ title, text, published, API_PAGE_ID, postId }: any) => {
     }
     if (published !== undefined) {
       setPublished(published);
-    }console.log(postId)
+    }
     if(updated){
       redirect(`/posts/${postId}`)
     }

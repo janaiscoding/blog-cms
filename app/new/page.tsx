@@ -24,9 +24,10 @@ const NewPost = () => {
     if (!jwtToken) {
       redirect("/admin");
     }
-  }, []);
+    redirect(`/posts/${newPostId}`)
+  }, [newPostId]);
   return (
-    <div className="h-screen px-6">
+    <div className="h-screen px-6 py-10">
       <Form
         hTitle={"Create a new blog post"}
         title={title}
