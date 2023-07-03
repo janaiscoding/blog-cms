@@ -1,5 +1,7 @@
 # JanaIsCoding's Blog CMS
 
+[Live Blog](https://blog-client-smoky.vercel.app/) | [Blog Repo](https://github.com/janaiscoding/blog-client/tree/main) | [REST API Repo](https://github.com/janaiscoding/blog-api)
+
 Features:
 - Log in, JWT Auth.
 - Create new posts, using TinyMCE text rich editor for the post's content.
