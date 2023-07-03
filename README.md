@@ -7,7 +7,22 @@ Features:
 - Update or delete comments. 
 
 # CMS Demo
-![Preview]('public/blog-cms-preview.gif')
+![CMS Gif preview](https://github.com/janaiscoding/blog-cms/blob/main/public/blog-cms-preview.gif)
 
 
-### Made with Next.js / TypeScript <3
+# Built with
+
+## Technologies 
+
+- ReactJs, Next.js
+- JavaScript, TypeScript 
+- CSS3, TailwindCSS
+- HTML5
+
+## Tools Used
+
+- Visual Studio Code
+- npm package manager
+- TinyMCE
+- Linux Terminal
+- Git and Github
