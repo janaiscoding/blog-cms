@@ -74,33 +74,6 @@ async function createPost(url: string, opts: {}, setter: any) {
       console.log(error.message);
     });
 }
-async function createComment(
-  url: string,
-  opts: {},
-  refresher: boolean,
-  setter: any,
-  errorSetter: any,
-  handleClear: any
-) {
-  await fetch(url, opts)
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.errors) {
-        errorSetter(data.errors);
-        console.log("....Errors");
-        setter(!refresher);
-      } else {
-        handleClear();
-        errorSetter([]);
-        setter(!refresher);
-      }
-    })
-    .catch((error) => {
-      console.log(error.message);
-      //unhandled error
-    });
-}
-
 async function updatePost(url: string, opts: {}, setter: any) {
   console.log(url);
   await fetch(url, opts)
@@ -129,6 +102,66 @@ async function deletePost(
     });
 }
 
+async function createComment(
+  url: string,
+  opts: {},
+  refresher: boolean,
+  setter: any,
+  errorSetter: any,
+  handleClear: any
+) {
+  await fetch(url, opts)
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.errors) {
+        errorSetter(data.errors);
+        console.log("....Errors");
+        setter(!refresher);
+      } else {
+        handleClear();
+        errorSetter([]);
+        setter(!refresher);
+      }
+    })
+    .catch((error) => {
+      console.log(error.message);
+      //unhandled error
+    });
+}
+
+async function deleteComment(
+  url: string,
+  opts: {},
+  refresher: boolean,
+  setter: any
+) {
+  await fetch(url, opts)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      setter(!refresher);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+}
+async function updateComment(
+  url: string,
+  opts: {},
+  refresher: boolean,
+  setter: any
+) {
+  await fetch(url, opts)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      setter(!refresher);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+}
+
 const opts_get = {
   method: "GET",
 };
@@ -138,13 +171,6 @@ const opts_post = {
   headers: {
     "Content-Type": "application/json",
     Authorization: `Bearer ${getJwtToken()}`,
-  },
-  body: "",
-};
-const opts_post_comment = {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
   },
   body: "",
 };
@@ -163,7 +189,13 @@ const opts_delete = {
     Authorization: `Bearer ${getJwtToken()}`,
   },
 };
-
+const opts_post_comment = {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: "",
+};
 export {
   fetchPost,
   loginRequest,
@@ -173,6 +205,8 @@ export {
   createComment,
   updatePost,
   deletePost,
+  deleteComment,
+  updateComment,
   opts_get,
   opts_post,
   opts_post_comment,

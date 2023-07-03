@@ -66,7 +66,10 @@ export default function Page({ params }: { params: { id: string } }) {
             name={c.name}
             comment={c.comment}
             time={c.createdAt}
-            id={c._id}
+            commId={c._id}
+            postId={params.id}
+            refresher={refresher}
+            setRefresher={setRefresher}
           />
         ))}
       </div>

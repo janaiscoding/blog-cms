@@ -24,7 +24,9 @@ const NewPost = () => {
     if (!jwtToken) {
       redirect("/admin");
     }
-    redirect(`/posts/${newPostId}`)
+    if (newPostId) {
+      redirect(`/posts/${newPostId}`);
+    }
   }, [newPostId]);
   return (
     <div className="h-screen px-6 py-10">
