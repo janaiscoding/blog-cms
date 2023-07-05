@@ -1,6 +1,6 @@
 # JanaIsCoding's Blog CMS
 
-[Live Blog](https://blog-client-smoky.vercel.app/) | [Blog Repo](https://github.com/janaiscoding/blog-client/tree/main) | [REST API Repo](https://github.com/janaiscoding/blog-api)
+[Live Blog](https://janaiscoding-blog.vercel.app/) | [Blog Repo](https://github.com/janaiscoding/blog-client/tree/main) | [REST API Repo](https://github.com/janaiscoding/blog-api)
 
 Features:
 - Log in, JWT Auth.
